@@ -13,6 +13,7 @@ const test = [
   },
   {
     id: 3,
+    category: "LOGO",
     name: "Slider Project",
     img: "https://tunis.ibthemespro.com/img/projects/project-3.jpg",
   },
