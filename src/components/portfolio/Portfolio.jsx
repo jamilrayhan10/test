@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { Tab, Tabs, TabList } from "react-tabs";
-
 import portfolio_data from "../../test";
-import "./Portfolio.css";
 
 const Portfolio = () => {
   const [isOpen, setIsOpen] = useState(false);
-  function toggleModalOne() {
+  function toggleModal() {
     setIsOpen(!isOpen);
   }
 
@@ -41,7 +39,7 @@ const Portfolio = () => {
                 className=""
                 key={item.id}
               >
-                <figure onClick={toggleModalOne}>
+                <figure onClick={toggleModal}>
                   <img src={item.img} alt={item.name} />
                   <div className=" hover-content-wrapper">
                     <span className="content-title">{item.name}</span>
@@ -50,14 +48,14 @@ const Portfolio = () => {
 
                 <Modal
                   isOpen={isOpen}
-                  onRequestClose={toggleModalOne}
+                  onRequestClose={toggleModal}
                   contentLabel="My dialog"
                   className="custom-modal dark"
                   overlayClassName="custom-overlay dark"
                   closeTimeoutMS={500}
                 >
                   <div>
-                    <button className="close-modal" onClick={toggleModalOne}>
+                    <button className="close-modal" onClick={toggleModal}>
                       <img src="/img/cancel.svg" alt="close icon" />
                     </button>
 
@@ -130,15 +128,6 @@ const Portfolio = () => {
           </ul>
         </div>
       </Tabs>
-      {/* <div className="portfolio_item d-flex justify-content-center">
-        <button onClick={() => setItems(portfolio_data)}>ALL</button>
-        <button onClick={() => filterItem("LOGO")}>LOGO</button>
-        <button onClick={() => filterItem("VIDEO")}>VIDEO</button>
-        <button onClick={() => filterItem("GRAPHIC_DESIGN")}>
-          GRAPHIC DESIGN
-        </button>
-        <button onClick={() => filterItem("MOCKUP")}>MOCKUP</button>
-      </div> */}
     </>
   );
 };
